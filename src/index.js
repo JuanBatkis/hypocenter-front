@@ -4,8 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//Import UIkit
+import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
+import 'uikit/dist/css/uikit.min.css';
 //Import routes config
 import {BrowserRouter} from 'react-router-dom'
+
+//Use UIkit for the icons
+UIkit.use(Icons);
 
 //Declare WithRouter to use the routes
 const WithRouter = () => (
