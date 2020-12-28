@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import {PlusButton} from './components';
 import Routes from './Routes';
 import {logout} from './services/userWs';
 import AppContext from './AppContext';
@@ -43,7 +44,7 @@ class  App extends Component {
 				}}
 			>
 				<div >
-					{/* <Navbar user={state.user} logout={logout}/> */}
+					<PlusButton user={state.user} logout={logout}/>
 					<Routes />
 				</div>
 			</AppContext.Provider>
