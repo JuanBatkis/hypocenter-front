@@ -3,6 +3,13 @@
 	--radius: 12px;
 }
 
+.uk-padding-small-left {
+	padding-left: 10px;
+}
+.uk-padding-small-right {
+	padding-right: 10px;
+}
+
 #plusBttn {
 	position: fixed;
 	bottom: 20px;

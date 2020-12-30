@@ -42,44 +42,87 @@ export default class SignupContainer extends Component {
                 <Link className="uk-text-primary" to="/">
                     Home
                 </Link>
+                
                 <div className="uk-container uk-flex uk-flex-center">
-                    <div className="uk-width-1-4">
+                    <div className="uk-width-1-3">
                         <h3>Sign Up</h3>
                         <form
-                            className="uk-width-1-1 uk-form-stacked uk-flex uk-flex-center uk-flex-column"
+                            className="uk-form-stacked uk-flex uk-flex-wrap uk-flex-column"
                             onSubmit={onSubmit}
                         >
-                            <div className="uk-margin">
-                                <div className="uk-inline">
-                                    <span className="uk-form-icon" uk-icon="icon: user"></span>
+                            <div className="uk-margin-bottom uk-form-stacked uk-flex uk-flex-wrap uk-width-2-2@m">
+                                <div className="uk-width-1-2@m uk-padding-small-right">
+                                    <label className="uk-form-label" for="name">Name</label>
                                     <input
                                         className="uk-input"
-                                        type="email"
-                                        name="email"
-                                        onChange={handleChange}
-                                        required
-                                        value = {data['email'] ? data['email'] : ''}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="uk-margin">
-                                <div className="uk-inline">
-                                    <span className="uk-form-icon" uk-icon="icon: user"></span>
-                                    <input
-                                        className="uk-input"
+                                        id="name"
                                         type="text"
                                         name="name"
                                         onChange={handleChange}
                                         required
                                         value = {data['name'] ? data['name'] : ''}
+                                        placeholder="John"
+                                    />
+                                </div>
+
+                                <div className="uk-width-1-2@m uk-padding-small-left">
+                                    <label className="uk-form-label" for="last_name">Last Name</label>
+                                    <input
+                                        className="uk-input"
+                                        id="last_name"
+                                        type="text"
+                                        name="last_name"
+                                        onChange={handleChange}
+                                        required
+                                        value = {data['last_name'] ? data['last_name'] : ''}
+                                        placeholder="Doe"
                                     />
                                 </div>
                             </div>
 
-                            <div className="uk-margin">
-                                <div className="uk-inline">
-                                    <span className="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                            <div className="uk-margin-bottom uk-width-2-2@m">
+                                <label className="uk-form-label" for="email">Email</label>
+                                <input
+                                    className="uk-input"
+                                    type="email"
+                                    name="email"
+                                    onChange={handleChange}
+                                    required
+                                    value = {data['email'] ? data['email'] : ''}
+                                    placeholder="johndoe@email.com"
+                                />
+                            </div>
+
+                            <div className="uk-margin-bottom uk-form-stacked uk-flex uk-flex-wrap uk-width-2-2@m">
+                                <div className="uk-width-1-2@m uk-padding-small-right">
+                                    <label className="uk-form-label" for="phone">Phone</label>
+                                    <input
+                                        className="uk-input"
+                                        type="text"
+                                        name="phone"
+                                        onChange={handleChange}
+                                        required
+                                        value = {data['phone'] ? data['phone'] : ''}
+                                        placeholder="+54 011 2222-2222"
+                                    />
+                                </div>
+
+                                <div className="uk-width-1-2@m uk-padding-small-left">
+                                    <label className="uk-form-label" for="organization">Organization</label>
+                                    <input
+                                        className="uk-input"
+                                        type="text"
+                                        name="organization"
+                                        onChange={handleChange}
+                                        value = {data['organization'] ? data['organization'] : ''}
+                                        placeholder="O.N.U."
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="uk-margin-bottom uk-form-stacked uk-flex uk-flex-wrap uk-width-2-2@m">
+                                <div className="uk-width-1-2@m uk-padding-small-right">
+                                    <label className="uk-form-label" for="password">Password</label>
                                     <input
                                         className="uk-input"
                                         type="password"
@@ -87,13 +130,12 @@ export default class SignupContainer extends Component {
                                         onChange={handleChange}
                                         required
                                         value = {data['password'] ? data['password'] : ''}
+                                        placeholder="********"
                                     />
                                 </div>
-                            </div>
 
-                            <div className="uk-margin">
-                                <div className="uk-inline">
-                                    <span className="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                <div className="uk-width-1-2@m uk-padding-small-left">
+                                    <label className="uk-form-label" for="confirmPassword">Confirm Password</label>
                                     <input
                                         className="uk-input"
                                         type="password"
@@ -101,6 +143,7 @@ export default class SignupContainer extends Component {
                                         onChange={handleChange}
                                         required
                                         value = {data['confirmPassword'] ? data['confirmPassword'] : ''}
+                                        placeholder="********"
                                     />
                                 </div>
                             </div>

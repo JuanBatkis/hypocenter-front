@@ -54,26 +54,24 @@ export default class AuthContainer extends Component {
                     <div className="uk-width-1-4">
                         <h3>Log In</h3>
                         <form
-                            className="uk-width-1-1 uk-form-stacked uk-flex uk-flex-center uk-flex-column"
+                            className="uk-form-stacked uk-flex uk-flex-wrap uk-flex-column"
                             onSubmit={onSubmit}
                         >
-                            <div className="uk-margin">
-                                <div className="uk-inline">
-                                    <span className="uk-form-icon" uk-icon="icon: user"></span>
-                                    <input
-                                        className="uk-input"
-                                        type="email"
-                                        name="email"
-                                        onChange={handleChange}
-                                        required
-                                        value = {data['email'] ? data['email'] : ''}
-                                    />
-                                </div>
+                            <div className="uk-margin-bottom uk-width-2-2@m">
+                                <label className="uk-form-label" for="email">Email</label>
+                                <input
+                                    className="uk-input"
+                                    type="email"
+                                    name="email"
+                                    onChange={handleChange}
+                                    required
+                                    value = {data['email'] ? data['email'] : ''}
+                                    placeholder="johndoe@email.com"
+                                />
                             </div>
 
-                            <div className="uk-margin">
-                                <div className="uk-inline">
-                                    <span className="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                            <div className="uk-margin-bottom uk-width-2-2@m">
+                                    <label className="uk-form-label" for="password">Password</label>
                                     <input
                                         className="uk-input"
                                         type="password"
@@ -81,9 +79,9 @@ export default class AuthContainer extends Component {
                                         onChange={handleChange}
                                         required
                                         value = {data['password'] ? data['password'] : ''}
+                                        placeholder="********"
                                     />
                                 </div>
-                            </div>
 
                             <div className="uk-text-meta uk-margin-small-bottom">
                                 Don't have an account?{' '}
