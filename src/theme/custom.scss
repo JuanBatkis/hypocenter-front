@@ -61,6 +61,56 @@ $button-primary-hover-background: #6480f2;
 // 4. Import UIkit.
 @import "uikit/src/scss/uikit-theme.scss";
 
+// Inputs
+input.uk-input {
+    border: 0;
+    border-bottom: 2px solid #6480f2;
+}
+
+input.uk-input::placeholder {
+    color: #cccccc;
+}
+
+// Button
+.uk-button {
+    border-radius: 4px;
+    text-transform: none;
+    transition: background-color .3s;
+}
+
+.uk-button:hover {
+    background-color: $button-primary-hover-background;
+}
+
+// Notification
+.uk-notification-message {
+    position: relative;
+    padding: 15px;
+    background: #fff;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid $global-primary-background;
+}
+
+.uk-notification-message-danger {
+    background: $global-danger-background;
+    color: #fff;
+    border: 2px solid $global-danger-background;;
+}
+
+.uk-notification-message-danger .uk-close {
+    display: block;
+    color: #fff;
+    opacity: 0.6;
+    transition: opacity .3s;
+}
+
+.uk-notification-message-danger .uk-close:hover {
+    opacity: 1;
+}
+
 // Other general styles
 /*html {
     background-color: $global-muted-background;
