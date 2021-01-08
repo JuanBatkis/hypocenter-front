@@ -1,6 +1,7 @@
 :root {
 	--main-color: #5877f3;
 	--radius: 12px;
+	--button-primary-hover-background: #6480f2;
 }
 
 .uk-padding-small-left {
@@ -22,6 +23,12 @@
 	border-radius: 50px;
 	padding: 0;
 	background-color: var(--main-color);
+	transition: background-color .3s;
+	border: 0;
+}
+
+#plusBttn > button:hover {
+    background-color: var(--button-primary-hover-background);
 }
 
 #plusBttn > button > span > svg {
