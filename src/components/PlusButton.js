@@ -8,7 +8,7 @@ const PlusButton = ({ user, logout }) => {
             <div uk-dropdown="pos: top-right; mode: click; animation: uk-animation-slide-bottom-small; duration: 300">
                 {user._id ? (
                     <ul className="uk-nav uk-dropdown-nav">
-                        <li onClick={logout}>Logout</li>
+                        <li onClick={logout}><Link to="#">Logout</Link></li>
                     </ul>
                 ) : (
                     <ul className="uk-nav uk-dropdown-nav">

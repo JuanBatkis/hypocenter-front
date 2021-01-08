@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {login} from '../../services/userWs';
 import {Link} from 'react-router-dom';
 import AppContext from '../../AppContext';
+import { buildNotification } from '../../utils/notification';
 
 export default class AuthContainer extends Component {
     //Use static to be able to use context
@@ -38,7 +39,12 @@ export default class AuthContainer extends Component {
 
             console.log('Congrats', response);
         }).catch((error) => {
-            console.log('An error occurred', error.response)
+            console.log('An error occurred', error.response);
+            //almacenamos los errores una variable y sacamos solo los mensajes!!
+            const errors = Object.values(error.response.data.msg)
+            //recorremos el arreglo y constuimos la notificacion (importar buildNotification)
+            //error = al mensaje, "danger" = al color de la notificacion, close = si tiene o no metodo para cerra
+            errors.map((error) => buildNotification(error,"danger","close"))
         });
     }
 

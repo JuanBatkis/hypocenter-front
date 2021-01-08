@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {signup} from '../../services/userWs';
 import {Link} from 'react-router-dom';
+import { buildNotification } from '../../utils/notification';
 
 export default class SignupContainer extends Component {
     //state === mini database for our class and children
@@ -30,7 +31,20 @@ export default class SignupContainer extends Component {
             //console.log('Congrats', response);
             history.push('/');
         }).catch((error) => {
-            //console.log('An error occurred', error.response)
+            console.log('An error occurred', error.response);
+            const data = error.response.data;
+            let msg = ''
+            if ('error' in data) {
+                msg = Object.values(data.error[0][0].message);
+                console.log('msg 1: ', msg);
+            } else {
+                msg = Object.values(data);
+                console.log('msg 2: ', msg);
+            }
+            //almacenamos los errores una variable y sacamos solo los mensajes!!
+            //recorremos el arreglo y constuimos la notificacion (importar buildNotification)
+            //error = al mensaje, "danger" = al color de la notificacion, close = si tiene o no metodo para cerra
+            msg.map((msg) => buildNotification(msg,"danger","close"))
         });
     }
 
@@ -128,7 +142,7 @@ export default class SignupContainer extends Component {
                                         type="password"
                                         name="password"
                                         onChange={handleChange}
-                                        required
+                                        //required
                                         value = {data['password'] ? data['password'] : ''}
                                         placeholder="********"
                                     />
@@ -141,7 +155,7 @@ export default class SignupContainer extends Component {
                                         type="password"
                                         name="confirmPassword"
                                         onChange={handleChange}
-                                        required
+                                        //required
                                         value = {data['confirmPassword'] ? data['confirmPassword'] : ''}
                                         placeholder="********"
                                     />
