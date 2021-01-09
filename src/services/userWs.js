@@ -11,3 +11,4 @@ export const signup = (data) => {
 export const logout = () => {
     return _axios.post('/user/logout');
 }
+

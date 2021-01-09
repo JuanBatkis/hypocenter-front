@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap");
+
+// 1. Your custom variables and variable overwrites.
+// Font
+$global-font-family: "Archivo",
+sans-serif;
+
+$global-font-size: 16px !default;
+$global-line-height: 1.5 !default; // 24px
+
+$global-xxlarge-font-size: 2.625rem !default; // 42px
+$global-xlarge-font-size: 2rem !default; // 32px
+$global-large-font-size: 1.5rem !default; // 24px
+$global-medium-font-size: 1.25rem !default; // 20px
+$global-xmedium-font-size: 1.125rem; // 20px
+$global-small-font-size: 0.75rem !default; // 14px
+
+// Color
+$global-color: #000 !default;
+$global-emphasis-color: #5877f3;
+$global-muted-color: #424f5c !default;
+$global-link-color: #1e87f0 !default;
+$global-link-hover-color: #0f6ecd !default;
+
+$global-inverse-color: #fff;
+
+// BG Color
+$global-background: #fff !default;
+
+$global-muted-background: #ebf5ff;
+$global-primary-background: #5877f3;
+$global-secondary-background: #1d1467;
+
+$global-success-background: #32d296 !default;
+$global-warning-background: #faa05a !default;
+$global-danger-background: #f0506e !default;
+
+// Shadow
+$global-small-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !default;
+$global-medium-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$global-large-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$global-xlarge-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+//Borders
+$global-border: #cacaee !default;
+
+// Hover
+$button-primary-hover-background: #6480f2;
+
+// 2. Import default variables and available mixins.
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-card() {
+    color: #000;
+}
+
+// 4. Import UIkit.
+@import "uikit/src/scss/uikit-theme.scss";
+
+// Other general styles
+/*html {
+    background-color: $global-muted-background;
+}
+
+body {
+    //background-image: url(../assets/body.png);
+    background-size: cover;
+    height: auto;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+// Type
+.uk-text-medium {
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+// Utility
+.uk-margin-xxlarge-top {
+    margin-top: 15rem;
+}
+
+.bg-img {
+    z-index: 0;
+    opacity: 0.85;
+}
+
+.uk-overlay {
+    height: auto;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.9) 70%);
+}
+
+.uk-round {
+    border-radius: 24px;
+    box-shadow: $global-large-box-shadow;
+}
+
+// Card
+.uk-card {
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: $global-secondary-background;
+}
+
+.uk-card-body {
+    position: relative;
+    z-index: 997;
+}
+
+.card-container {
+    position: relative;
+}
+
+.uk-link-toggle {
+    transition: all 0.5s ease-out;
+    transform: perspective(100px) translateZ(0px);
+}
+
+.uk-link-toggle:hover {
+    box-shadow: 0 32px 80px -12px rgba(16, 3, 92, 0.5);
+    transform: perspective(100px) translateZ(5px);
+}
+
+// Pill
+.uk-pill {
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    text-align: left;
+    border-radius: 6px;
+}
+
+.uk-pill:nth-child(2) {
+    margin-left: 0.5rem;
+}
+
+// Button
+.uk-button {
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: $global-xmedium-font-size;
+    text-transform: none;
+    max-width: 100%;
+}
+
+.uk-button-transparent {
+    background: transparent;
+    margin-top: 7px;
+}
+
+.uk-user {
+    font-weight: 600;
+    color: $global-emphasis-color;
+}
+
+.floating-group {
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    bottom: -24px;
+    z-index: 9998;
+}
+
+.floating-action {
+    position: relative;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: $global-xlarge-box-shadow;
+    margin: 0 1.5rem;
+}
+
+.floating-action:hover,
+.floating-action:focus {
+    background-color: #fff;
+}
+
+svg path,
+svg polyline {
+    stroke-width: 2;
+}
+
+.floating-action:first-child .uk-icon svg path,
+.floating-action:first-child .uk-icon svg polyline {
+    stroke: $global-danger-background !important;
+}
+
+// Navbar
+.uk-navbar-nav li a {
+    font-size: $global-xmedium-font-size;
+    text-transform: none;
+}
+
+.uk-navbar-left ul li a {
+    font-size: $global-xmedium-font-size;
+    font-family: "Archivo Black";
+    color: $global-secondary-background !important;
+}
+
+.uk-logo img {
+    width: 132px;
+}
+
+// Inputs
+input.uk-input {
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.uk-select,
+.uk-textarea {
+    border-radius: 8px;
+}
+
+.uk-form-label {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: $global-color;
+}
+
+form .uk-inline {
+    color: red;
+    text-align: left;
+    max-width: 120%;
+    width: 100%;
+}
+
+// Modal
+.uk-modal-body {
+    border-radius: 24px;
+    box-shadow: $global-xlarge-box-shadow;
+}
+
+// Dropdown
+.uk-dropdown {
+    border-radius: 8px;
+    box-shadow: $global-large-box-shadow;
+}
+
+.uk-dropdown-bottom-left {
+    right: 16px;
+}
+
+// Avatar
+.uk-border-circle {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+}
+
+// Cover
+.uk-cover-container.uk-hero {
+    background: #100f1b;
+    height: 91vh;
+}
+
+.uk-cover-container.uk-hero video {
+    opacity: 0.35;
+}
+
+h1 {
+    font-family: "Archivo Black", sans-serif;
+}
+
+.uk-cover-container.uk-hero h1 {
+    font-size: 3.75rem;
+}
+
+.uk-cover-container.uk-hero a {
+    background: $global-emphasis-color !important;
+    color: #fff !important;
+    box-shadow: $global-large-box-shadow;
+}
+
+.uk-cover-container.uk-hero p {
+    font-size: 1.25rem;
+}
+
+@keyframes slide {
+    0%   {
+        opacity: 0;
+        transform: rotate(-20deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+.dog-card {
+    animation: slide 0.4s ease;
+}*/
