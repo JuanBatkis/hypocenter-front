@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@font-face {
+	font-family:BrownLight;
+	src: url(https://res.cloudinary.com/dyvopd0iz/raw/upload/v1610071206/Hipocentro/brown-light-webfont_bs2sye.woff2);
+	font-weight: light;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  @font-face {
+	font-family:BrownBold;
+	src: url(https://res.cloudinary.com/dyvopd0iz/raw/upload/v1610071121/Hipocentro/brown-bold-alt-webfont_xc5frc.woff2);
+	font-weight: bold;
   }
-  to {
-    transform: rotate(360deg);
+
+  @font-face {
+	font-family:BrownRegular;
+	src: url(https://res.cloudinary.com/dyvopd0iz/raw/upload/v1610071217/Hipocentro/brown-regular-alt-webfont_ampfvz.woff2);
+	font-weight: Regular;
   }
+
+  body{
+	  font-family: BrownLight;
+	  font-size: 16px;
+  }
+
+:root {
+	--main-color: #5877f3;
+	--radius: 12px;
+	--button-primary-hover-background: #6480f2;
+}
+
+.uk-padding-small-left {
+	padding-left: 10px;
+}
+.uk-padding-small-right {
+	padding-right: 10px;
+}
+
+#plusBttn {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+
+#plusBttn > button {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	padding: 0;
+	background-color: var(--main-color);
+	transition: background-color .3s;
+	border: 0;
+}
+
+#plusBttn > button:hover {
+    background-color: var(--button-primary-hover-background);
+}
+
+#plusBttn > button > span > svg {
+	fill: #fff;
+}
+
+#plusBttn > .uk-dropdown {
+	background-color: var(--main-color);
+	border-radius: var(--radius);
+	padding: 20px;
+	min-width: 180px;
+}
+
+#plusBttn > .uk-dropdown > ul > li > a {
+	font-size: 16px;
+	color: #fff;
+}
+
+#article{
+	display: flex;
+	flex-direction: row;
+	justify-content:space-around;
+}
+
+#article > .uk-article {
+	text-align: left;
+	padding-left: 15%;
+}
+
+h1,#subtitle{
+	font-size: 20px;
+	font-family: BrownBold;
+	line-height: 1.2;
+	color: black;
+}
+
+#pictureRight{
+	width: 300px;	
+}
+
+#calling{
+	width: 300px;	
+	color:var(--main-color);
+	text-align: left;
+	font-family: BrownRegular;
+}
+
+img > .ilustration {
+	padding: 20, 0;
+}
+
+a{
+	font-family: BrownBold;
 }
