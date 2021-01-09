@@ -1,3 +1,26 @@
+@font-face {
+	font-family:BrownLight;
+	src: url(https://res.cloudinary.com/dyvopd0iz/raw/upload/v1610071206/Hipocentro/brown-light-webfont_bs2sye.woff2);
+	font-weight: light;
+  }
+
+  @font-face {
+	font-family:BrownBold;
+	src: url(https://res.cloudinary.com/dyvopd0iz/raw/upload/v1610071121/Hipocentro/brown-bold-alt-webfont_xc5frc.woff2);
+	font-weight: bold;
+  }
+
+  @font-face {
+	font-family:BrownRegular;
+	src: url(https://res.cloudinary.com/dyvopd0iz/raw/upload/v1610071217/Hipocentro/brown-regular-alt-webfont_ampfvz.woff2);
+	font-weight: Regular;
+  }
+
+  body{
+	  font-family: BrownLight;
+	  font-size: 16px;
+  }
+
 :root {
 	--main-color: #5877f3;
 	--radius: 12px;
@@ -45,4 +68,41 @@
 #plusBttn > .uk-dropdown > ul > li > a {
 	font-size: 16px;
 	color: #fff;
+}
+
+#article{
+	display: flex;
+	flex-direction: row;
+	justify-content:space-around;
+}
+
+#article > .uk-article {
+	text-align: left;
+	padding-left: 15%;
+}
+
+h1,#subtitle{
+	font-size: 20px;
+	font-family: BrownBold;
+	line-height: 1.2;
+	color: black;
+}
+
+#pictureRight{
+	width: 300px;	
+}
+
+#calling{
+	width: 300px;	
+	color:var(--main-color);
+	text-align: left;
+	font-family: BrownRegular;
+}
+
+img > .ilustration {
+	padding: 20, 0;
+}
+
+a{
+	font-family: BrownBold;
 }
