@@ -59,7 +59,7 @@ class HomeContainer extends Component {
                             </div>
                         </div>
                 </article>
-                <div id="pictureRight">
+                <div id="calling">
                     <img src="https://res.cloudinary.com/dyvopd0iz/image/upload/v1610221586/Hipocentro/image1-25_zv9wl1.jpg" alt="Foto del sismo"/>
                 </div>
             </div>

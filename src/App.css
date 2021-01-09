@@ -91,3 +91,18 @@ h1,#subtitle{
 #pictureRight{
 	width: 300px;	
 }
+
+#calling{
+	width: 300px;	
+	color:var(--main-color);
+	text-align: left;
+	font-family: BrownRegular;
+}
+
+img > .ilustration {
+	padding: 20, 0;
+}
+
+a{
+	font-family: BrownBold;
+}
