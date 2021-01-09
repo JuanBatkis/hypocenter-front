@@ -43,7 +43,7 @@ class  App extends Component {
 					setUser
 				}}
 			>
-				<div >
+				<div>
 					<PlusButton user={state.user} logout={logout}/>
 					<Routes />
 				</div>

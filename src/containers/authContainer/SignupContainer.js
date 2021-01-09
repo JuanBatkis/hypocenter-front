@@ -29,7 +29,7 @@ export default class SignupContainer extends Component {
         signup(this.state.data).then((response) => {
             this.setState({data: {}});
             //console.log('Congrats', response);
-            history.push('/');
+            history.push('/login');
         }).catch((error) => {
             //console.log('An error occurred', error.response);
             const data = error.response.data;

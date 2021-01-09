@@ -26,6 +26,10 @@ export default class AuthContainer extends Component {
     //Sends data to DB and validates
     onSubmit = (event) => {
         event.preventDefault();
+
+        //Deconstruct props
+        const {history} = this.props;
+
         login(this.state.data).then((response) => {
             this.setState({data: {}});
 
@@ -37,7 +41,7 @@ export default class AuthContainer extends Component {
             //We set the user
             this.context.setUser(response.data.user)
 
-            console.log('Congrats', response);
+            history.push('/');
         }).catch((error) => {
             //console.log('An error occurred', error.response);
             const data = error.response.data;

@@ -70,10 +70,18 @@
 	color: #fff;
 }
 
+.padre{
+	height: 95vh;
+}
+
 #article{
 	display: flex;
 	flex-direction: row;
 	justify-content:space-around;
+}
+
+.overflow{
+	overflow-y:scroll;
 }
 
 #article > .uk-article {
