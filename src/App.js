@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import './theme/nav-layout.scss';
 import './App.css';
 import {PlusButton} from './components';
+import {Navbar} from './components';
 import Routes from './Routes';
 import {logout} from './services/userWs';
 import AppContext from './AppContext';
@@ -43,10 +45,11 @@ class  App extends Component {
 					setUser
 				}}
 			>
-				<div >
-					<PlusButton user={state.user} logout={logout}/>
+				<Navbar user={state.user} logout={logout}/>
+				<div id="main-content">
 					<Routes />
 				</div>
+				<PlusButton user={state.user} logout={logout}/>
 			</AppContext.Provider>
 		);
 	}
