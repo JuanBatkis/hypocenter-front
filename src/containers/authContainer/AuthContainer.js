@@ -63,10 +63,7 @@ export default class AuthContainer extends Component {
         const {handleChange, onSubmit} = this;
         const {data} = this.state;
         return(
-            <section className="uk-section">
-                <Link className="uk-text-primary" to="/">
-                    Home
-                </Link>
+            <section className="uk-section auth-containers">
                 <div className="uk-container uk-flex uk-flex-center">
                     <div className="uk-width-1-4">
                         <h3>Log In</h3>

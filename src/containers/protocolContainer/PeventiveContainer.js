@@ -6,7 +6,7 @@ class PreventiveContainer extends Component {
         return(
             <div className="uk-child-width-1-2 uk-text-center" uk-grid id="article">
 
-                 <article className="uk-article">
+                <article className="uk-article">
                     <h1 className="uk-article-title"><a className="uk-link-reset" href="">Etapa 1: Antes de la emergencia</a></h1>
                         <h1 classNameName="uk-article-title" id="subtitle"><a className="uk-link-reset" href="">Conoce tu vivienda</a></h1>
 
