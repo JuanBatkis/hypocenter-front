@@ -45,7 +45,7 @@ class  App extends Component {
 					setUser
 				}}
 			>
-				<Navbar user={state.user} logout={logout}/>
+				<Navbar user={state.user}/>
 				<div id="main-content">
 					<Routes />
 				</div>
