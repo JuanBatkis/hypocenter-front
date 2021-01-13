@@ -5,7 +5,8 @@ import SignupContainer from './containers/authContainer/SignupContainer';
 import HomeContainer from './containers/homeContainer';
 import EmergencyContainer from './containers/protocolContainer/EmergencyContainer';
 import PreventiveContainer from './containers/protocolContainer/PeventiveContainer';
-import DamageReportsContainer from './containers/reportContainer/DamageReportsContainer';
+import VeryReports from './containers/reportsContainer/VerifiedReports';
+
 
 const Routes = () => (
     <Switch>
@@ -15,7 +16,7 @@ const Routes = () => (
         <Route exact path = '/signup' component = {SignupContainer} />
         <Route exact path = '/protocolo-preventivo' component = {PreventiveContainer}/>
         <Route exact path = '/protocolo-emergencia' component = {EmergencyContainer}/>
-        <Route exact path = '/reportes-daños' component = {DamageReportsContainer}/>
+        <Route exact path = '/reports-verified' component = {VeryReports}/>
     </Switch>
 );
 

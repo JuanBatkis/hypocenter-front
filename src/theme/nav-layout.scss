@@ -1,0 +1,62 @@
+@import "./custom.scss";
+
+#root {
+    /* display: flex;
+    flex-wrap: wrap;
+    position: relative; */
+
+    header {
+        width: 220px;
+        height: 100vh;
+        //border-right: 2px solid $global-border;
+        box-sizing: border-box;
+        position: fixed;
+        box-shadow: 0 0 10px 0 #5877f34a;
+
+        .logo-container {
+            padding: 22px;
+            margin-bottom: 18px;
+
+
+            .logo-image {
+                width: 75%;
+                padding-bottom: 15px;
+            }
+
+        }
+
+        nav.uk-navbar {
+            flex-direction: column;
+            background-color: unset;
+
+            .nav-item {
+                padding: 10px 22px;
+                font-family: BrownBold;
+                text-decoration: none;
+                background-color: #85ebba00;
+                transition: background-color .3s, color .2s;
+
+                &:hover {
+                    background-color: #85ebb9;
+                    color: #fff;
+                }
+                &.nav-active {
+                    background-color: #85ebb9;
+                    color: #fff;
+                }
+            }
+
+        }
+
+    }
+
+    #main-content {
+        margin-left: 220px;
+        padding-top: 22px;
+
+        .auth-containers {
+            margin-right: 220px;
+        }
+
+    }
+}
