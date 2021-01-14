@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = ({ user }) => {
 	const currentPathname = window.location.pathname;
-	console.log(user)
 	return (
 		<header>
 			<div className="logo-container">

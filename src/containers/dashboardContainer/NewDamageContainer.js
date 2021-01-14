@@ -3,6 +3,7 @@ import {createDamage} from '../../services/entryDamageWs';
 import {Link} from 'react-router-dom';
 import AppContext from '../../AppContext';
 import { buildNotification } from '../../utils/notification';
+import { damageTypeOptions, infraTypeOptions, useTypeOptions, needOptions, offerOptions } from "./data";
 
 import CreatableSelect from 'react-select/creatable';
 
@@ -34,12 +35,18 @@ export default class NewDamageContainer extends Component {
         this.setState({data});
     }
 
-    handleChangeMulti = (newValue: any, actionMeta: any) => {
-        console.group('Value Changed');
-        console.log(newValue);
-        console.log(`action: ${actionMeta.action}`);
-        console.groupEnd();
-    };
+    handleChangeMultiSelect = (field, value) => {
+        let {data} = this.state;
+
+        if (Array.isArray(value)) {
+            const values = value.map(x => x.value);
+            data[field] = values;
+        } else {
+            data[field] = value.value;
+        }
+
+        this.setState({data});
+    }
 
     //Sends data to DB and validates
     onSubmit = (event) => {
@@ -48,12 +55,14 @@ export default class NewDamageContainer extends Component {
         //Deconstruct props
         const {history} = this.props;
 
+        //console.log(this.state.data);
+
         createDamage(this.state.data).then((response) => {
             this.setState({data: {}});
             //console.log('Congrats', response);
             history.push('/dashboard');
         }).catch((error) => {
-            //console.log('An error occurred', error.response);
+            console.log('An error occurred', error.response);
             const data = error.response.data;
             let msg = ''
             if ('validationError' in data) {
@@ -70,13 +79,9 @@ export default class NewDamageContainer extends Component {
     }
 
     render(){
-        const {handleChange, handleChangeMulti, onSubmit} = this;
+        const {handleChange, handleChangeMultiSelect, onSubmit} = this;
         const {data} = this.state;
-        const options = [
-            { value: 'chocolate', label: 'Chocolate' },
-            { value: 'strawberry', label: 'Strawberry' },
-            { value: 'vanilla', label: 'Vanilla' }
-        ];
+
         return(
             <section className="uk-section auth-containers">
                 <div className="uk-container uk-flex uk-flex-center">
@@ -184,99 +189,130 @@ export default class NewDamageContainer extends Component {
                             </div>
 
                             <h4>General</h4>
-                            <div className="uk-margin-bottom uk-form-stacked uk-flex uk-flex-wrap uk-width-2-2@m">
-                                <div className="uk-width-1-2@m uk-padding-small-right">
-                                    <label className="uk-form-label" for="phone">Contact Phone</label>
-                                    <input
-                                        className="uk-input"
-                                        id="phone"
-                                        type="text"
-                                        name="phone"
-                                        onChange={handleChange}
-                                        required
-                                        value = {data['phone'] ? data['phone'] : ''}
-                                    />
-                                </div>
-
-                                <div className="uk-width-1-2@m uk-padding-small-left">
-                                    <label className="uk-form-label" for="references">References</label>
-                                    <input
-                                        className="uk-input"
-                                        id="references"
-                                        type="text"
-                                        name="references"
-                                        onChange={handleChange}
-                                        required
-                                        value = {data['references'] ? data['references'] : ''}
-                                    />
-                                </div>
+                            <div className="uk-margin-bottom uk-width-2-2@m">
+                                <label className="uk-form-label" for="phone">Contact Phone</label>
+                                <input
+                                    className="uk-input"
+                                    id="phone"
+                                    type="text"
+                                    name="phone"
+                                    onChange={handleChange}
+                                    required
+                                    value = {data['phone'] ? data['phone'] : ''}
+                                />
                             </div>
 
                             <div className="uk-margin-bottom uk-width-2-2@m">
-                                <label className="uk-form-label" for="email">Email</label>
+                                <label className="uk-form-label" for="damageType">Damage Type</label>
                                 <CreatableSelect
                                     isMulti
-                                    onChange={handleChangeMulti}
-                                    name="colors"
-                                    options={options}
+                                    onChange={(value) => handleChangeMultiSelect('damageType', value)}
+                                    name="damageType"
+                                    options={damageTypeOptions}
                                     className="multi-select"
                                     classNamePrefix="select"
+                                    required
+                                />
+                            </div>
+
+                            <div className="uk-margin-bottom uk-width-2-2@m">
+                                <label className="uk-form-label" for="infraType">Infrastructure Type</label>
+                                <CreatableSelect
+                                    onChange={(value) => handleChangeMultiSelect('infraType', value)}
+                                    name="infraType"
+                                    options={infraTypeOptions}
+                                    className="multi-select"
+                                    classNamePrefix="select"
+                                    required
+                                />
+                            </div>
+
+                            <div className="uk-margin-bottom uk-width-2-2@m">
+                                <label className="uk-form-label" for="useType">Use Type</label>
+                                <CreatableSelect
+                                    onChange={(value) => handleChangeMultiSelect('useType', value)}
+                                    name="useType"
+                                    options={useTypeOptions}
+                                    className="multi-select"
+                                    classNamePrefix="select"
+                                    required
                                 />
                             </div>
 
                             <div className="uk-margin-bottom uk-form-stacked uk-flex uk-flex-wrap uk-width-2-2@m">
                                 <div className="uk-width-1-2@m uk-padding-small-right">
-                                    <label className="uk-form-label" for="phone">Phone</label>
+                                    <label className="uk-form-label" for="trapped">People Trapped</label>
                                     <input
                                         className="uk-input"
-                                        type="text"
-                                        name="phone"
+                                        type="number"
+                                        name="trapped"
                                         onChange={handleChange}
                                         required
-                                        value = {data['phone'] ? data['phone'] : ''}
-                                        placeholder="+54 011 2222-2222"
+                                        value = {data['trapped'] ? data['trapped'] : 0}
                                     />
                                 </div>
 
                                 <div className="uk-width-1-2@m uk-padding-small-left">
-                                    <label className="uk-form-label" for="organization">Organization</label>
+                                    <label className="uk-form-label" for="injured">People Injured</label>
                                     <input
                                         className="uk-input"
-                                        type="text"
-                                        name="organization"
+                                        type="number"
+                                        name="injured"
                                         onChange={handleChange}
-                                        value = {data['organization'] ? data['organization'] : ''}
-                                        placeholder="O.N.U."
+                                        required
+                                        value = {data['injured'] ? data['injured'] : 0}
                                     />
                                 </div>
                             </div>
 
                             <div className="uk-margin-bottom uk-form-stacked uk-flex uk-flex-wrap uk-width-2-2@m">
                                 <div className="uk-width-1-2@m uk-padding-small-right">
-                                    <label className="uk-form-label" for="password">Password</label>
+                                    <label className="uk-form-label" for="missing">People Missing</label>
                                     <input
                                         className="uk-input"
-                                        type="password"
-                                        name="password"
+                                        type="number"
+                                        name="missing"
                                         onChange={handleChange}
-                                        //required
-                                        value = {data['password'] ? data['password'] : ''}
-                                        placeholder="********"
+                                        required
+                                        value = {data['missing'] ? data['missing'] : 0}
                                     />
                                 </div>
 
                                 <div className="uk-width-1-2@m uk-padding-small-left">
-                                    <label className="uk-form-label" for="confirmPassword">Confirm Password</label>
+                                    <label className="uk-form-label" for="deceased">People Deceased</label>
                                     <input
                                         className="uk-input"
-                                        type="password"
-                                        name="confirmPassword"
+                                        type="number"
+                                        name="deceased"
                                         onChange={handleChange}
-                                        //required
-                                        value = {data['confirmPassword'] ? data['confirmPassword'] : ''}
-                                        placeholder="********"
+                                        required
+                                        value = {data['deceased'] ? data['deceased'] : 0}
                                     />
                                 </div>
+                            </div>
+
+                            <h4 className="uk-margin-remove-bottom">I need</h4>
+                            <div className="uk-margin-bottom uk-width-2-2@m">
+                                <CreatableSelect
+                                    isMulti
+                                    onChange={(value) => handleChangeMultiSelect('need', value)}
+                                    name="need"
+                                    options={needOptions}
+                                    className="multi-select"
+                                    classNamePrefix="select"
+                                />
+                            </div>
+
+                            <h4 className="uk-margin-remove-bottom uk-margin-small-top">I Offer</h4>
+                            <div className="uk-margin-bottom uk-width-2-2@m">
+                                <CreatableSelect
+                                    isMulti
+                                    onChange={(value) => handleChangeMultiSelect('offer', value)}
+                                    name="offer"
+                                    options={offerOptions}
+                                    className="multi-select"
+                                    classNamePrefix="select"
+                                />
                             </div>
 
                             <div className="uk-text-meta uk-margin-small-bottom">

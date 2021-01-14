@@ -150,7 +150,7 @@ export default class SignupContainer extends Component {
                                         type="password"
                                         name="password"
                                         onChange={handleChange}
-                                        //required
+                                        required
                                         value = {data['password'] ? data['password'] : ''}
                                         placeholder="********"
                                     />
@@ -163,7 +163,7 @@ export default class SignupContainer extends Component {
                                         type="password"
                                         name="confirmPassword"
                                         onChange={handleChange}
-                                        //required
+                                        required
                                         value = {data['confirmPassword'] ? data['confirmPassword'] : ''}
                                         placeholder="********"
                                     />

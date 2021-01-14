@@ -16,7 +16,6 @@ class DashboardContainer extends Component {
     }
 
     render() {
-        console.log(this.props);
         return(
             <div className="uk-child-width-1-2 uk-text-center" uk-grid id="article">
                 <h1>Dashboard</h1>
