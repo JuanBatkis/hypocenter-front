@@ -7,3 +7,4 @@
 // export {default as TextAreaField} from './TextAreaField';
 export {default as PlusButton} from './PlusButton';
 export {default as Navbar} from './Navbar';
+export {default as ReportCard} from './ReportCard';

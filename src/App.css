@@ -70,10 +70,18 @@ body{
 	color: #fff;
 }
 
+.padre{
+	height: 95vh;
+}
+
 #article{
 	display: flex;
 	flex-direction: row;
 	justify-content:space-around;
+}
+
+.overflow{
+	overflow-y:scroll;
 }
 
 #article > .uk-article {
@@ -101,6 +109,16 @@ h1,#subtitle{
 
 img > .ilustration {
 	padding: 20, 0;
+}
+
+.uk-article-title{
+	font-size: 20px;
+	font-family: BrownBold;
+	color: var(--main-color);
+}
+
+.radio{
+	padding:25px 100px;
 }
 
 /* a{

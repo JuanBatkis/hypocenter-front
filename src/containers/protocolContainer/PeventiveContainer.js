@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 class PreventiveContainer extends Component {
     render() {
         return(
-            <div className="uk-child-width-1-2 uk-text-center" uk-grid id="article">
+            <div className="uk-child-width-1-2 uk-text-center padre" uk-grid id="article">
 
                 <article className="uk-article">
                     <h1 className="uk-article-title"><a className="uk-link-reset" href="">Etapa 1: Antes de la emergencia</a></h1>
