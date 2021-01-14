@@ -1,9 +1,22 @@
 import React, {Component} from 'react';
 import {signup} from '../../services/userWs';
 import {Link} from 'react-router-dom';
+import AppContext from '../../AppContext';
 import { buildNotification } from '../../utils/notification';
 
 export default class SignupContainer extends Component {
+    //Use static to be able to use context
+    static contextType = AppContext;
+
+    //If user is logged in, he can't register again
+    componentDidMount() {
+        const {user} = this.context.state;
+
+        if (Object.keys(user).length) {
+            this.props.history.push('/');
+        }
+    }
+
     //state === mini database for our class and children
     state = {
         data: {}
@@ -137,7 +150,7 @@ export default class SignupContainer extends Component {
                                         type="password"
                                         name="password"
                                         onChange={handleChange}
-                                        //required
+                                        required
                                         value = {data['password'] ? data['password'] : ''}
                                         placeholder="********"
                                     />
@@ -150,7 +163,7 @@ export default class SignupContainer extends Component {
                                         type="password"
                                         name="confirmPassword"
                                         onChange={handleChange}
-                                        //required
+                                        required
                                         value = {data['confirmPassword'] ? data['confirmPassword'] : ''}
                                         placeholder="********"
                                     />
