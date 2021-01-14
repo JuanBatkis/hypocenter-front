@@ -7,6 +7,8 @@ import NewDamageContainer from './containers/dashboardContainer/NewDamageContain
 import HomeContainer from './containers/homeContainer';
 import EmergencyContainer from './containers/protocolContainer/EmergencyContainer';
 import PreventiveContainer from './containers/protocolContainer/PeventiveContainer';
+import VeryReports from './containers/reportsContainer/VerifiedReports';
+
 
 const Routes = () => (
     <Switch>
@@ -18,6 +20,7 @@ const Routes = () => (
         <Route exact path = '/protocolo-emergencia' component = {EmergencyContainer}/>
         <Route exact path = '/dashboard' component = {DashboardContainer}/>
         <Route exact path = '/dashboard/new-damage-report' component = {NewDamageContainer}/>
+        <Route exact path = '/dashboard/reports-verified' component = {VeryReports}/>
     </Switch>
 );
 
