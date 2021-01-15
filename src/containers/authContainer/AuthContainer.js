@@ -8,6 +8,15 @@ export default class AuthContainer extends Component {
     //Use static to be able to use context
     static contextType = AppContext;
 
+    //If user is logged in, he can't log in again
+    componentDidMount() {
+        const {user} = this.context.state;
+
+        if (Object.keys(user).length) {
+            this.props.history.push('/');
+        }
+    }
+
     //state === mini database for our class and children
     state = {
         data: {}

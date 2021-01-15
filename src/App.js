@@ -68,7 +68,7 @@ class  App extends Component {
 					addreport
 				}}
 			>
-				<Navbar user={state.user} logout={logout}/>
+				<Navbar user={state.user}/>
 				<div id="main-content">
 					<Routes />
 				</div>
