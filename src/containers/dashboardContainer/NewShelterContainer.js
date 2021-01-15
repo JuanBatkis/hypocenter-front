@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {createDamage} from '../../services/entryDamageWs';
+import {createShelter} from '../../services/entryShelterWs';
 import AppContext from '../../AppContext';
 import { buildNotification } from '../../utils/notification';
 import CreatableSelect from 'react-select/creatable';
-import { damageTypeOptions, infraTypeOptions, useTypeOptions, needOptions, offerOptions } from "./data";
+import { needOptions, offerOptions } from "./data";
 
-export default class NewDamageContainer extends Component {
+export default class NewShelterContainer extends Component {
     //Use static to be able to use context
     static contextType = AppContext;
 
@@ -26,6 +26,7 @@ export default class NewDamageContainer extends Component {
     //Listenst for key input and saves it
     handleChange = (event) => {
         const {value, name} = event.target;
+
         let {data} = this.state;
 
         data[name] = value;
@@ -55,7 +56,7 @@ export default class NewDamageContainer extends Component {
 
         //console.log(this.state.data);
 
-        createDamage(this.state.data).then((response) => {
+        createShelter(this.state.data).then((response) => {
             this.setState({data: {}});
             //console.log('Congrats', response);
             history.push('/dashboard');
@@ -84,7 +85,7 @@ export default class NewDamageContainer extends Component {
             <section className="uk-section auth-containers">
                 <div className="uk-container uk-flex uk-flex-center">
                     <div className="uk-width-1-3">
-                        <h3>New damage report</h3>
+                        <h3>New shelter report</h3>
                         <form
                             className="uk-form-stacked uk-flex uk-flex-wrap uk-flex-column"
                             onSubmit={onSubmit}
@@ -200,53 +201,42 @@ export default class NewDamageContainer extends Component {
                                 />
                             </div>
 
-                            <div className="uk-margin-bottom uk-width-2-2@m">
-                                <label className="uk-form-label" for="damageType">Damage Type</label>
-                                <CreatableSelect
-                                    isMulti
-                                    onChange={(value) => handleChangeMultiSelect('damageType', value)}
-                                    name="damageType"
-                                    options={damageTypeOptions}
-                                    className="multi-select"
-                                    classNamePrefix="select"
-                                    required
-                                />
-                            </div>
+                            <div className="uk-margin-bottom uk-form-stacked uk-flex uk-flex-wrap uk-width-2-2@m">
+                                <div className="uk-width-1-2@m uk-padding-small-right">
+                                    <label className="uk-form-label" for="openingHour">Opening Hour</label>
+                                    <input
+                                        className="uk-input"
+                                        type="time"
+                                        name="openingHour"
+                                        onChange={handleChange}
+                                        required
+                                        value = {data['openingHour'] ? data['openingHour'] : ''}
+                                    />
+                                </div>
 
-                            <div className="uk-margin-bottom uk-width-2-2@m">
-                                <label className="uk-form-label" for="infraType">Infrastructure Type</label>
-                                <CreatableSelect
-                                    onChange={(value) => handleChangeMultiSelect('infraType', value)}
-                                    name="infraType"
-                                    options={infraTypeOptions}
-                                    className="multi-select"
-                                    classNamePrefix="select"
-                                    required
-                                />
-                            </div>
-
-                            <div className="uk-margin-bottom uk-width-2-2@m">
-                                <label className="uk-form-label" for="useType">Use Type</label>
-                                <CreatableSelect
-                                    onChange={(value) => handleChangeMultiSelect('useType', value)}
-                                    name="useType"
-                                    options={useTypeOptions}
-                                    className="multi-select"
-                                    classNamePrefix="select"
-                                    required
-                                />
+                                <div className="uk-width-1-2@m uk-padding-small-left">
+                                    <label className="uk-form-label" for="closingHour">Closing Hour</label>
+                                    <input
+                                        className="uk-input"
+                                        type="time"
+                                        name="closingHour"
+                                        onChange={handleChange}
+                                        required
+                                        value = {data['closingHour'] ? data['closingHour'] : ''}
+                                    />
+                                </div>
                             </div>
 
                             <div className="uk-margin-bottom uk-form-stacked uk-flex uk-flex-wrap uk-width-2-2@m">
                                 <div className="uk-width-1-2@m uk-padding-small-right">
-                                    <label className="uk-form-label" for="trapped">People Trapped</label>
+                                    <label className="uk-form-label" for="capacity">Capacity</label>
                                     <input
                                         className="uk-input"
                                         type="number"
-                                        name="trapped"
+                                        name="capacity"
                                         onChange={handleChange}
                                         required
-                                        value = {data['trapped'] ? data['trapped'] : 0}
+                                        value = {data['capacity'] ? data['capacity'] : 0}
                                     />
                                 </div>
 

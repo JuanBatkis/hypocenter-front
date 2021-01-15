@@ -16,6 +16,7 @@ const Navbar = ({ user }) => {
 				<nav className="uk-navbar-container" uk-navbar="true">
 					<NavLink exact to="/dashboard" className="nav-item" activeClassName="nav-active">Dashboard</NavLink>
 					<NavLink to="/dashboard/new-damage-report" className="nav-item" activeClassName="nav-active">New damage report</NavLink>
+					<NavLink to="/dashboard/new-shelter-report" className="nav-item" activeClassName="nav-active">New shelter report</NavLink>
 					{user.role === 'ADMIN' ? (
 						<NavLink to="/dashboard/entries" className="nav-item" activeClassName="nav-active">Entries</NavLink>
 					) : null}

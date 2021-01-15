@@ -1,6 +1,6 @@
 import {_axios} from './api';
 
-export const createDamage = data => {
+export const createShelter = data => {
     const finalData = {
         building_name: data.building_name,
         location: {
@@ -13,10 +13,9 @@ export const createDamage = data => {
         },
         general: {
             phone: data.phone,
-            damageType: data.damageType,
-            infraType: data.infraType,
-            useType: data.useType,
-            trapped: data.trapped ? data.trapped : 0,
+            openingHour: data.openingHour,
+            closingHour: data.closingHour,
+            capacity: data.capacity ? data.capacity : 0,
             injured: data.injured ? data.injured : 0,
             missing: data.missing ? data.missing : 0,
             deceased: data.deceased ? data.deceased : 0
@@ -26,9 +25,9 @@ export const createDamage = data => {
         description: data.description,
         status: 'PENDING'
     }
-    return _axios.post('/entry-damage/', finalData);
+    return _axios.post('/entry-shelter/', finalData);
 }
 
-export const getMyDamages = () => {
-    return _axios.get('/entry-damage/my-entries');
+export const getMyShelters = () => {
+    return _axios.get('/entry-shelter/my-entries');
 }
