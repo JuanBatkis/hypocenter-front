@@ -34,6 +34,6 @@ export const getMyShelters = () => {
 
 export const getShelterVeryReports = () =>{
     let query = "status=APPROVED";
-    return _axios.get(`/entry-damage?${query}`)
+    return _axios.get(`/entry-shelter?${query}`)
 
 }

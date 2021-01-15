@@ -12,7 +12,9 @@ class VeryReports extends Component {
     static contextType = AppContext;
 
     state = {
-        listReport:[]
+        listReport:[],
+        listReportShelter:[],
+        isChecked: "Shelter"
         // [
         //     {
         //         _id:"bw8y89bjfbhjbv",
@@ -70,10 +72,23 @@ componentWillMount(){
     } )
     .catch(error => console.log('Error'))
 
+    getShelterVeryReports().then(res => {
+        console.log(res.data.result)
+        this.setState({listReportShelter:res.data.result})
+    })
+
+}
+
+handleChange = (isChecked) => {
+    console.log(isChecked)
+    this.setState({
+        isChecked
+    })
+
 }
 
     render() {
-        const {listReport}= this.state;
+        const {listReport, listReportShelter, isChecked}= this.state;
 console.log(this.state)
         return(
             <div className="uk-child-width-1-2 uk-text-center padre" uk-grid id="article">
@@ -86,8 +101,8 @@ console.log(this.state)
                         <fieldset className="uk-fieldset">
 
                             <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                                <label className="radio"><input className="uk-radio" type="radio" name="radio2" checked/> Collection/Shelter</label>
-                                <label className="radio"><input className="uk-radio" type="radio" name="radio2"/>Damaged Locations</label>
+                                <label className="radio"><input className="uk-radio" type="radio" name="radio2" checked={isChecked==="Shelter"?true:false} onChange={()=>this.handleChange("Shelter")}/> Collection/Shelter</label>
+                                <label className="radio"><input className="uk-radio" type="radio" name="radio2" checked={isChecked==="Damage"?true:false} onChange={()=>this.handleChange("Damage")}/>Damaged Locations</label>
                             </div>
 
                             <form className="uk-search uk-search-default">
@@ -101,13 +116,20 @@ console.log(this.state)
                     </form>
                     <div className="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true">
 
-                        { listReport.length?
+                        { isChecked==="Damage"?(listReport.length?
                             listReport.map((item, i)=>{
                                 return(
                                     <ReportCard {...item}key={i}/>
                                 )
                             })
-                            :"No hay reportes"
+                            :"No hay reportes"): 
+                            (listReportShelter.length?
+                            listReportShelter.map((item, i)=>{
+                                return(
+                                    <ReportCard {...item}key={i}/>
+                                )
+                            })
+                            :"No hay reportes")
                         }
                     </div>
 

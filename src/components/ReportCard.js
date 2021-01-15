@@ -18,10 +18,16 @@ const ReportCard = ({
   isDemo = false,
 }) => {
   return (
-  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+  <div class="uk-card uk-card-default uk-card-body">
       <h3 class="uk-card-title">{_colaborator.organization}</h3>
-      <span className="uk-margin-small-right" uk-icon="location"></span>
-      <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <span className="uk-margin-small-right" uk-icon="location"></span><p>{building_name}{location.city}</p>
+      <span className="uk-margin-small-right" uk-icon="phone"></span><p>{general.phone}</p>
+      <h4>We need</h4>
+      <p>{need}</p>
+      <h4>We offer</h4>
+      <p>{offer}</p>
+      <h4>Description</h4>
+      <p>{description}</p>   
   </div>
   );
 };

@@ -121,6 +121,14 @@ img > .ilustration {
 	padding:25px 100px;
 }
 
+.uk-card{
+	font-family: BrownLight;
+}
+
+h3, h4{
+	font-family: BrownBold;
+}
+
 /* a{
 	font-family: BrownBold;
 } */
