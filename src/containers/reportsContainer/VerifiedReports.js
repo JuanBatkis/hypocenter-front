@@ -1,71 +1,80 @@
 import React, {Component} from 'react';
 import AppContext from '../../AppContext';
-import { ReportCard } from "../../components"
+import { ReportCard } from "../../components";
+import {getDamageVeryReports} from '../../services/entryDamageWs';
+import {getShelterVeryReports} from '../../services/entryShelterWs';
 //ws
 
 import {Link} from 'react-router-dom';
 
 class VeryReports extends Component {
+     
+    static contextType = AppContext;
 
     state = {
-        listReport:[
-            {
-                _id:"bw8y89bjfbhjbv",
-                _colaborator:"ONU",
-                building_name:"Pachuca",
-                location:"Roma Norte",
-                general:[
-                    {
-                        phone:"948282828",
-                        damageType: "Cuarteadura",
-                        infraType: "Edificio",
-                        useType: "Negocios",
-                        trapped:0,
-                        injured:3,
-                        missing:1,
-                        deceased:0,
-                    }
-                ],
-                need:"gasas",
-                offer:"Agua", 
-                description:"bla bla", 
-                status:"PENDING",
-                createdAt:"2020-12-19T18:13:44.487+00:00",
-            },
-            {
-                _id:"bw8y89bjfbhjbv",
-                _colaborator:"ONU",
-                building_name:"Pachuca",
-                location:"Roma Norte",
-                general:[
-                    {
-                        phone:"948282828",
-                        damageType: "Cuarteadura",
-                        infraType: "Edificio",
-                        useType: "Negocios",
-                        trapped:0,
-                        injured:3,
-                        missing:1,
-                        deceased:0,
-                    }
-                ],
-                need:"gasas",
-                offer:"Agua", 
-                description:"bla bla", 
-                status:"PENDING",
-                createdAt:"2020-12-19T18:13:44.487+00:00",
-            }
-        ]
+        listReport:[]
+        // [
+        //     {
+        //         _id:"bw8y89bjfbhjbv",
+        //         _colaborator:"ONU",
+        //         building_name:"Pachuca",
+        //         location:"Roma Norte",
+        //         general:[
+        //             {
+        //                 phone:"948282828",
+        //                 damageType: "Cuarteadura",
+        //                 infraType: "Edificio",
+        //                 useType: "Negocios",
+        //                 trapped:0,
+        //                 injured:3,
+        //                 missing:1,
+        //                 deceased:0,
+        //             }
+        //         ],
+        //         need:"gasas",
+        //         offer:"Agua", 
+        //         description:"bla bla", 
+        //         status:"PENDING",
+        //         createdAt:"2020-12-19T18:13:44.487+00:00",
+        //     },
+        //     {
+        //         _id:"bw8y89bjfbhjbv",
+        //         _colaborator:"ONU",
+        //         building_name:"Pachuca",
+        //         location:"Roma Norte",
+        //         general:[
+        //             {
+        //                 phone:"948282828",
+        //                 damageType: "Cuarteadura",
+        //                 infraType: "Edificio",
+        //                 useType: "Negocios",
+        //                 trapped:0,
+        //                 injured:3,
+        //                 missing:1,
+        //                 deceased:0,
+        //             }
+        //         ],
+        //         need:"gasas",
+        //         offer:"Agua", 
+        //         description:"bla bla", 
+        //         status:"PENDING",
+        //         createdAt:"2020-12-19T18:13:44.487+00:00",
+        //     }
+        // ]
     }
 
 componentWillMount(){
-    //Aquí va el web service de la lista de reportes
+    getDamageVeryReports().then(res =>{
+        console.log(res.data.result)
+        this.setState({listReport:res.data.result})
+    } )
+    .catch(error => console.log('Error'))
 
 }
 
     render() {
         const {listReport}= this.state;
-
+console.log(this.state)
         return(
             <div className="uk-child-width-1-2 uk-text-center padre" uk-grid id="article">
 

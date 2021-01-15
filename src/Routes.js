@@ -20,7 +20,7 @@ const Routes = () => (
         <Route exact path = '/protocolo-emergencia' component = {EmergencyContainer}/>
         <Route exact path = '/dashboard' component = {DashboardContainer}/>
         <Route exact path = '/dashboard/new-damage-report' component = {NewDamageContainer}/>
-        <Route exact path = '/dashboard/reports-verified' component = {VeryReports}/>
+        <Route exact path = '/reports-verified' component = {VeryReports}/>
     </Switch>
 );
 

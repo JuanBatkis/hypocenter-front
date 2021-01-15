@@ -33,19 +33,19 @@ class  App extends Component {
 		this.setState({user});
 	}
 
-	setVeryReports = (veryReports)=>{
-		this.setState({veryReports})
-	};
+	// setVeryReports = (veryReports)=>{
+	// 	this.setState({veryReports})
+	// };
 
-	setAllReports = (allreports)=>{
-		this.state({allreports}})
-	};
+	// setAllReports = (allreports)=>{
+	// 	this.state({allreports})
+	// };
 
-	addreport = (report) => {
-		let {allreports} = this.state;
-		//objeto con id y resignamos sus propios valores
-		allreports = {[report.id]: report, ...report }
-	}
+	// addreport = (report) => {
+	// 	let {allReports} = this.state;
+	// 	//objeto con id y resignamos sus propios valores
+	// 	allReports = {[report.id]: report, ...report }
+	// }
 
 	render(){
 		//Deconstruct the state
@@ -76,6 +76,7 @@ class  App extends Component {
 			</AppContext.Provider>
 		);
 	}
+}
 
 //Por que no funciona
 const AppWithRouter = withRouter(App);
