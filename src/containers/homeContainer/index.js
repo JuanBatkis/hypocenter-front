@@ -5,32 +5,33 @@ class HomeContainer extends Component {
         return(
             <div className="uk-child-width-1-2 uk-text-center" uk-grid id="article">
                 <article className="uk-article">
+                    <h1>Hipocentro</h1>
 
-                    <p>El hipocentro o foco sísmico es el punto interior de la Tierra donde se inicia un movimiento sísmico o terremoto. El epicentro es la proyección del hipocentro sobre la superficie terrestre, la vertical del foco;​ que suele ser el lugar donde el sismo se siente con mayor intensidad.</p>
+                    <p>The hypocenter or seismic focus is the interior point of the Earth where a seismic movement or earthquake begins. The epicenter is the projection of the hypocenter on the earth's surface, the vertical of the focus, which is usually the place where the earthquake is felt with the greatest intensity.</p>
 
-                    <p>Esta plataforma busca ser ese foco en el que se centralicen los datos reportados por los voluntarios que se encuentren en sitios afectados después de un terremoto.</p>
+                    <p>This platform seeks to be that focus in which the data reported by the volunteers who are in affected sites after an earthquake are centralized.</p>
 
-                    <p>Creemos que, así como los movimientos que se originan en lo profundo del manto terrestre se proyectan a la supeficie, un movimiento para gestionar información durante un desastre por sismo, puede ser útil para brindar apoyo de manera más organizada y eficiente.</p>
+                    <p>We believe that just as movements originating deep within the Earth's mantle are projected to the surface, a movement to manage information during an earthquake disaster can be useful to provide support in a more organized and efficient way.</p>
 
-                    <h1 classNameName="uk-article-title" id="subtitle"><a className="uk-link-reset" href="">Nuestro objetivo</a></h1>
+                    <h1 classNameName="uk-article-title" id="subtitle"><a className="uk-link-reset" href="">Our objetive</a></h1>
 
-                    <p>Hipocentro pone al alcance del público una base de consulta con reportes verificados, estos son fáciles de navegar gracias a la visualización en forma de fichas y a los filtros que te permiten depurar las búsquedas por:</p>
+                    <p>Hipocentro makes available to the public a query base with verified reports, these are easy to navigate thanks to the visualization in the form of tabs and the filters that allow you to refine searches by:</p>
                     <ul >
-                        <li>Ofrezco</li>
-                        <li>Necesito</li>
-                        <li>Nombre de un edificio</li>
-                        <li>Ubicación</li>
+                        <li>I offer</li>
+                        <li>I need</li>
+                        <li>Building name</li>
+                        <li>Location</li>
                     </ul>
 
-                    <h1 className="uk-article-title" id="subtitle"><a className="uk-link-reset" href="">Nuestro origen</a></h1>
+                    <h1 className="uk-article-title" id="subtitle"><a className="uk-link-reset" href="">Our origin</a></h1>
 
-                    <p>El éxito de estas plataformas no es posible sin solidaridad y trabajo en conjunto.</p>
-                    <p>Decidimos proponer esta interfaz a partir de los eventos del 19 de Septiembre de 2017 los logros de la organización #Verificado19s. Este movimiento usó las herramientas que tuvieron a su alcance para organizar los reportes que los voluntarios y las brigadas compartían. </p>
-                    <p>Gracias a sus increíbles esfuerzos más personas recibieron el apoyo que necesitaban de manera oportuna, además, jugaron un papel importante para combatir la ola de desinformación que se generó después del sismo. </p>
-                    <p>Con este proyecto buscamos honrar a los voluntarios retomando sus experiencias y proponiendo.</p>
+                    <p>The success of these platforms is not possible without solidarity and working together.</p>
+                    <p>We decided to propose this interface from the events of September 19, 2017, the achievements of the organization #Verificado19s. This movement used the tools at its disposal to organize the reports that the volunteers and the brigades shared.</p>
+                    <p>Thanks to their incredible efforts, more people received the support they needed in a timely manner, and they played an important role in fighting the wave of misinformation that was generated after the earthquake.</p>
+                    <p>With this project we seek to honor volunteers by taking up their experiences and proposing.</p>
                     <p></p>
                 
-                    <h1 className="uk-article-title" id="subtitle"><a className="uk-link-reset" href="">Fuentes confiables</a></h1>
+                    <h1 className="uk-article-title" id="subtitle"><a className="uk-link-reset" href="">Reliable sources</a></h1>
 
                     <div class="uk-child-width-1-2@m fuentes" uk-grid>
                         <div>
@@ -56,7 +57,6 @@ class HomeContainer extends Component {
                             </div></a>
                         </div>
                     </div>
-         
                 </article>
                 <div id="calling">
                     <img src="https://res.cloudinary.com/dyvopd0iz/image/upload/v1610221586/Hipocentro/image1-25_zv9wl1.jpg" alt="Foto del sismo"/>

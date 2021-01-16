@@ -24,14 +24,12 @@ class DashboardContainer extends Component {
         }
 
         getMyDamages().then((res)=>{
-            //console.log(res.data.result);
             this.setState({damages: res.data.result});
         }).catch((error)=>{
             console.log(error);
         });
 
         getMyShelters().then((res)=>{
-            //console.log(res.data.result);
             this.setState({shelters: res.data.result});
         }).catch((error)=>{
             console.log(error);

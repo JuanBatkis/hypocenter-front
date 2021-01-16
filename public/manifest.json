@@ -8,6 +8,16 @@
       "type": "image/x-icon"
     },
     {
+      "src": "logo-favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo-type.png",
+      "type": "image/png",
+      "sizes": "450x54"
+    },
+    {
       "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"

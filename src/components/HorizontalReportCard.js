@@ -60,9 +60,9 @@ const HorizontalReportCard = ({ entries, type }) => {
                                                     return(<li>{keyName.replace(/([a-z])([A-Z])/g, '$1 $2')}: <strong>{!Array.isArray(entry.general[keyName]) ? entry.general[keyName] : entry.general[keyName].join(', ')}</strong></li>);
                                                 })}
                                             </ul>
-                                            <h4 className="uk-margin-small-top uk-margin-remove-bottom">I Need:</h4>
+                                            <h4 className="uk-margin-small-top uk-margin-remove-bottom">We Need:</h4>
                                             <p className="uk-margin-remove-top">{entry.need.join(', ')}</p>
-                                            <h4 className="uk-margin-small-top uk-margin-remove-bottom">I Offer:</h4>
+                                            <h4 className="uk-margin-small-top uk-margin-remove-bottom">We Offer:</h4>
                                             <p className="uk-margin-remove-top">{entry.offer.join(', ')}</p>
                                             <h4 className="uk-margin-small-top uk-margin-remove-bottom">Description:</h4>
                                             <p className="uk-margin-remove-top">{entry.description}</p>

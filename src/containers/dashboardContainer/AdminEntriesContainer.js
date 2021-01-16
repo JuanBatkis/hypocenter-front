@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import AppContext from '../../AppContext';
-import { Link } from "react-router-dom";
 import {AdminHorizontalReportCard} from '../../components';
-import {getMyDamages} from '../../services/entryDamageWs';
-import {getMyShelters} from '../../services/entryShelterWs';
+import {getDamageReports} from '../../services/entryDamageWs';
+import {getShelterReports} from '../../services/entryShelterWs';
 import Select from 'react-select';
 import { filterOptions } from "./data";
 
@@ -26,15 +25,13 @@ class AdminEntriesContainer extends Component {
             this.props.history.push('/login');
         }
 
-        getMyDamages().then((res)=>{
-            //console.log(res.data.result);
+        getDamageReports('ALL').then((res)=>{
             this.setState({damages: res.data.result});
         }).catch((error)=>{
             console.log(error);
         });
 
-        getMyShelters().then((res)=>{
-            //console.log(res.data.result);
+        getShelterReports('ALL').then((res)=>{
             this.setState({shelters: res.data.result});
         }).catch((error)=>{
             console.log(error);
@@ -47,17 +44,17 @@ class AdminEntriesContainer extends Component {
         if (Array.isArray(value)) {
             const values = value.map(x => x.value);
             data[field] = values;
-        } else {
+        } else if(value) {
             data[field] = value.value;
         }
 
-        getMyDamages().then((res)=>{
+        getDamageReports(value.value).then((res)=>{
             this.setState({damages: res.data.result});
         }).catch((error)=>{
             console.log(error);
         });
 
-        getMyShelters().then((res)=>{
+        getShelterReports(value.value).then((res)=>{
             this.setState({shelters: res.data.result});
         }).catch((error)=>{
             console.log(error);
@@ -69,12 +66,12 @@ class AdminEntriesContainer extends Component {
     render() {
         const {handleChangeMultiSelect} = this;
         const {damages, shelters} = this.state;
-        console.log(damages);
         return(
             <div className="uk-child-width-1-1 uk-margin-medium-left uk-margin-medium-right" uk-grid>
                 <h1>User Entries</h1>
                 <h3 className="uk-margin-remove-bottom">Show:</h3>
                 <Select
+                    defaultValue={filterOptions[0]}
                     onChange={(value) => handleChangeMultiSelect('filter', value)}
                     name="filter"
                     options={filterOptions}
@@ -89,14 +86,14 @@ class AdminEntriesContainer extends Component {
                 <ul id="tabs-content" className="uk-switcher uk-margin">
                     <li>
                         {damages.length === 0 ? (
-                            <p>No damage entries. <Link to="/dashboard/new-damage-report">Create one?</Link></p>
+                            <p>No damage entries.</p>
                         ) : (
                             <AdminHorizontalReportCard entries={damages} type={'damage'}/>
                         )}
                     </li>
                     <li>
                         {shelters.length === 0 ? (
-                            <p>No shelter entries. <Link to="/dashboard/new-shelter-report">Create one?</Link></p>
+                            <p>No shelter entries.</p>
                         ) : (
                             <AdminHorizontalReportCard entries={shelters} type={'shelter'}/>
                         )}

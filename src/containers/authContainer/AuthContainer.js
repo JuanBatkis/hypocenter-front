@@ -52,15 +52,12 @@ export default class AuthContainer extends Component {
 
             history.push('/');
         }).catch((error) => {
-            //console.log('An error occurred', error.response);
             const data = error.response.data;
             let msg = ''
             if ('validationError' in data) {
                 msg = Object.values(data.validationError);
-                //console.log('msg 1: ', msg);
             } else {
                 msg = Object.values(data);
-                //console.log('msg 2: ', msg);
             }
             //recorremos el arreglo y constuimos la notificacion (importar buildNotification)
             //error = al mensaje, "danger" = al color de la notificacion, close = si tiene o no metodo para cerra

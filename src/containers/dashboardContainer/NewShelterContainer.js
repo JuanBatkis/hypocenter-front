@@ -40,7 +40,7 @@ export default class NewShelterContainer extends Component {
         if (Array.isArray(value)) {
             const values = value.map(x => x.value);
             data[field] = values;
-        } else {
+        } else if(value) {
             data[field] = value.value;
         }
 
@@ -54,11 +54,8 @@ export default class NewShelterContainer extends Component {
         //Deconstruct props
         const {history} = this.props;
 
-        //console.log(this.state.data);
-
         createShelter(this.state.data).then((response) => {
             this.setState({data: {}});
-            //console.log('Congrats', response);
             history.push('/dashboard');
         }).catch((error) => {
             console.log('An error occurred', error.response);
@@ -66,10 +63,8 @@ export default class NewShelterContainer extends Component {
             let msg = ''
             if ('validationError' in data) {
                 msg = Object.values(data.validationError);
-                //console.log('msg 1: ', msg);
             } else {
                 msg = Object.values(data);
-                //console.log('msg 2: ', msg);
             }
             //recorremos el arreglo y constuimos la notificacion (importar buildNotification)
             //error = al mensaje, "danger" = al color de la notificacion, close = si tiene o no metodo para cerra

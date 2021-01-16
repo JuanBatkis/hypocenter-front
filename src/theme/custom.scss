@@ -61,6 +61,10 @@ $button-primary-hover-background: #6480f2;
 // 4. Import UIkit.
 @import "uikit/src/scss/uikit-theme.scss";
 
+.uk-radius {
+    border-radius: 6px;
+}
+
 // Inputs
 input.uk-input {
     border: 0;
@@ -132,6 +136,11 @@ input.uk-input::placeholder {
 
 #tabs-content .uk-icon {
     width: 20px;
+}
+
+// Overlays
+.uk-dropdown, .uk-modal .uk-modal-body {
+    border-radius: 6px;
 }
 
 // Other general styles

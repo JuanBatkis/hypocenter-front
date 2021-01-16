@@ -37,6 +37,23 @@ export const getShelterVeryReports = () => {
     return _axios.get(`/entry-shelter?${query}`)
 }
 
+export const getShelterReports = status => {
+    let query;
+    if (status === 'ALL') {
+        query = '';
+    } else {
+        query = `?status=${status}`;
+    }
+    return _axios.get(`/entry-shelter${query}`)
+}
+
+export const updateShelter = (id, status) => {
+    const data = {
+        status: status
+    }
+    return _axios.patch(`/entry-shelter/${id}`, data);
+};
+
 export const deleteShelter = id => {
     return _axios.delete(`/entry-shelter/${id}`);
 }
