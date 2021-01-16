@@ -36,3 +36,7 @@ export const getDamageVeryReports = () =>{
 export const getMyDamages = () => {
     return _axios.get('/entry-damage/my-entries');
 }
+
+export const deleteDamage = id => {
+    return _axios.delete(`/entry-damage/${id}`);
+}

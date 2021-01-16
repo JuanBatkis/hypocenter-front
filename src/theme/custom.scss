@@ -121,6 +121,19 @@ input.uk-input::placeholder {
     box-shadow: 0 0 0 1px $global-primary-background;
 }
 
+// Tabs
+.uk-tab::before {
+    left: 0;
+}
+
+.uk-tab > li:first-child {
+    padding-left: 0;
+}
+
+#tabs-content .uk-icon {
+    width: 20px;
+}
+
 // Other general styles
 /*html {
     background-color: $global-muted-background;

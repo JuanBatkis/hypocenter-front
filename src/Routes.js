@@ -5,6 +5,7 @@ import SignupContainer from './containers/authContainer/SignupContainer';
 import DashboardContainer from './containers/dashboardContainer/DashboardContainer';
 import NewDamageContainer from './containers/dashboardContainer/NewDamageContainer';
 import NewShelterContainer from './containers/dashboardContainer/NewShelterContainer';
+import AdminEntriesContainer from './containers/dashboardContainer/AdminEntriesContainer';
 import HomeContainer from './containers/homeContainer';
 import EmergencyContainer from './containers/protocolContainer/EmergencyContainer';
 import PreventiveContainer from './containers/protocolContainer/PeventiveContainer';
@@ -23,6 +24,7 @@ const Routes = () => (
         <Route exact path = '/dashboard' component = {DashboardContainer}/>
         <Route exact path = '/dashboard/new-damage-report' component = {NewDamageContainer}/>
         <Route exact path = '/dashboard/new-shelter-report' component = {NewShelterContainer}/>
+        <Route exact path = '/dashboard/entries' component = {AdminEntriesContainer}/>
     </Switch>
 );
 
