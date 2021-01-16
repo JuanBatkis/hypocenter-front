@@ -23,6 +23,7 @@ const Navbar = ({ user }) => {
 				</nav>
 			) : (
 				<nav className="uk-navbar-container" uk-navbar="true">
+					<NavLink to="/reports-verified" className="nav-item" activeClassName="nav-active">Verified Reports</NavLink>
 					<NavLink to="/protocolo-preventivo" className="nav-item" activeClassName="nav-active">Preventive protocol</NavLink>
 					<NavLink to="/protocolo-emergencia" className="nav-item" activeClassName="nav-active">Emergency protocol</NavLink>
 				</nav>

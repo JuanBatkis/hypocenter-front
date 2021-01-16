@@ -14,7 +14,7 @@ import VeryReports from './containers/reportsContainer/VerifiedReports';
 
 const Routes = () => (
     <Switch>
-        {/* https://www.dylanpage.com/ */}
+        {/* https://www.hipocentro.com/ */}
         <Route exact path = '/' component = {HomeContainer} />
         <Route exact path = '/login' component = {AuthContainer} />
         <Route exact path = '/signup' component = {SignupContainer} />

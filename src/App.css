@@ -27,6 +27,11 @@ body{
 	--button-primary-hover-background: #6480f2;
 }
 
+::selection { 
+	background: #85ebb9; 
+	color: white;
+}v
+
 .uk-padding-small-left {
 	padding-left: 10px;
 }
@@ -120,6 +125,24 @@ img > .ilustration {
 .radio{
 	padding:25px 100px;
 }
+
+.uk-card{
+	font-family: BrownLight;
+}
+
+.uk-h3, .uk-h4, h3 ,h4, .subtitle{
+	font-family: BrownBold;
+}
+
+.fuentes{
+	display: flex;
+
+}
+
+.report{
+	display: flex;
+}
+
 
 /* a{
 	font-family: BrownBold;

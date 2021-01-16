@@ -44,7 +44,8 @@ export default class SignupContainer extends Component {
             //console.log('Congrats', response);
             history.push('/login');
         }).catch((error) => {
-            //console.log('An error occurred', error.response);
+            console.log('An error occurred', error);
+            if(data === undefined)msg='Something went wrong'
             const data = error.response.data;
             let msg = ''
             if ('validationError' in data) {
