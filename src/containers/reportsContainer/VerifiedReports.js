@@ -3,9 +3,7 @@ import AppContext from '../../AppContext';
 import { ReportCard } from "../../components";
 import {getDamageVeryReports} from '../../services/entryDamageWs';
 import {getShelterVeryReports} from '../../services/entryShelterWs';
-//ws
 
-import {Link} from 'react-router-dom';
 
 class VeryReports extends Component {
      
@@ -105,10 +103,12 @@ console.log(this.state)
                                 <label className="radio"><input className="uk-radio" type="radio" name="radio2" checked={isChecked==="Damage"?true:false} onChange={()=>this.handleChange("Damage")}/>Damaged Locations</label>
                             </div>
 
-                            <form className="uk-search uk-search-default">
+                            <hr/>
+
+                            {/* <form className="uk-search uk-search-default">
                                 <span uk-search-icon></span>
                                 <input class="uk-search-input" type="search" placeholder="Search..."/>
-                            </form>
+                            </form> */}
 
                         </fieldset>
 

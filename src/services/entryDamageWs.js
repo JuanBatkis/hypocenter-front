@@ -31,5 +31,8 @@ export const createDamage = data => {
 
 export const getDamageVeryReports = () =>{
     let query = "status=APPROVED";
-    return _axios.get(`/entry-damage?${query}`)
+    return _axios.get(`/entry-damage?${query}`)}
+
+export const getMyDamages = () => {
+    return _axios.get('/entry-damage/my-entries');
 }
