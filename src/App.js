@@ -12,7 +12,10 @@ class  App extends Component {
 
 	//New state in app
 	state = {
-		user : JSON.parse(localStorage.getItem('user')) || {}
+		user : JSON.parse(localStorage.getItem('user')) || {},
+		veryReports:{},
+		allreports:{}
+
 	}
 
 	//Deletes the cookie and redirectsto login
@@ -30,19 +33,39 @@ class  App extends Component {
 		this.setState({user});
 	}
 
+	// setVeryReports = (veryReports)=>{
+	// 	this.setState({veryReports})
+	// };
+
+	// setAllReports = (allreports)=>{
+	// 	this.state({allreports})
+	// };
+
+	// addreport = (report) => {
+	// 	let {allReports} = this.state;
+	// 	//objeto con id y resignamos sus propios valores
+	// 	allReports = {[report.id]: report, ...report }
+	// }
+
 	render(){
 		//Deconstruct the state
 		const {
 			state,
 			logout,
-			setUser
+			setUser,
+			setVeryReports,
+			setAllReports,
+			addreport
 		} = this;
 		return (
 			<AppContext.Provider
 				value={{
 					state,
 					logout,
-					setUser
+					setUser,
+					setVeryReports,
+					setAllReports,
+					addreport
 				}}
 			>
 				<Navbar user={state.user}/>
@@ -53,9 +76,9 @@ class  App extends Component {
 			</AppContext.Provider>
 		);
 	}
-
 }
 
+//Por que no funciona
 const AppWithRouter = withRouter(App);
 
 export default AppWithRouter;
