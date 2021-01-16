@@ -32,3 +32,10 @@ export const offerOptions = [
     { value: 'Food supply', label: 'Food supply' },
     { value: 'Transport', label: 'Transport' }
 ];
+
+export const filterOptions = [
+    { value: 'ALL', label: 'ALL' },
+    { value: 'PENDING', label: 'PENDING' },
+    { value: 'APPROVED', label: 'APPROVED' },
+    { value: 'DENIED', label: 'DENIED' }
+];

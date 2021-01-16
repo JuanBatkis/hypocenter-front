@@ -20,11 +20,12 @@ const deleteConfirmation = (id, type) => {
         }
     }
 }
-const HorizontalReportCard = ({ entries, type }) => {
+const AdminHorizontalReportCard = ({ entries, type }) => {
 	return (
         <table className="uk-table uk-table-middle uk-table-divider">
             <thead>
                 <tr>
+                    <th>Colaborator</th>
                     <th>Building Name</th>
                     <th>Status</th>
                     <th>Created</th>
@@ -35,6 +36,10 @@ const HorizontalReportCard = ({ entries, type }) => {
                 {entries.map((entry) => {
                     return (
                         <tr>
+                            <td>
+                                <p className="uk-margin-remove-bottom uk-inline">{entry._colaborator.name} {entry._colaborator.last_name}</p>
+                                <div data-uk-dropdown="pos: bottom-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+                            </td>
                             <td>{entry.building_name}</td>
                             <td>{entry.status}</td>
                             <td>{dayjs(entry.createdAt).format('YYYY-MM-DD')}</td>
@@ -81,4 +86,4 @@ const HorizontalReportCard = ({ entries, type }) => {
 	);
 };
 
-export default HorizontalReportCard;
+export default AdminHorizontalReportCard;

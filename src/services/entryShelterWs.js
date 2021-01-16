@@ -31,3 +31,7 @@ export const createShelter = data => {
 export const getMyShelters = () => {
     return _axios.get('/entry-shelter/my-entries');
 }
+
+export const deleteShelter = id => {
+    return _axios.delete(`/entry-shelter/${id}`);
+}
