@@ -28,3 +28,15 @@ export const createDamage = data => {
     }
     return _axios.post('/entry-damage/', finalData);
 }
+
+export const getDamageVeryReports = () =>{
+    let query = "status=APPROVED";
+    return _axios.get(`/entry-damage?${query}`)}
+
+export const getMyDamages = () => {
+    return _axios.get('/entry-damage/my-entries');
+}
+
+export const deleteDamage = id => {
+    return _axios.delete(`/entry-damage/${id}`);
+}
